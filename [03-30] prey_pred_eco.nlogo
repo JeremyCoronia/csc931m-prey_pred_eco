@@ -215,7 +215,7 @@ initial-number-sheep-herd
 initial-number-sheep-herd
 0
 100
-100.0
+74.0
 1
 1
 NIL
@@ -230,7 +230,7 @@ initial-number-wolf-pack
 initial-number-wolf-pack
 0
 100
-42.0
+50.0
 1
 1
 NIL
@@ -245,7 +245,7 @@ sheep-feed-value
 sheep-feed-value
 0
 50
-5.0
+4.0
 1
 1
 NIL
@@ -275,7 +275,7 @@ max-turn
 max-turn
 0
 50
-39.0
+15.0
 1
 1
 NIL
@@ -289,8 +289,8 @@ SLIDER
 max-step
 max-step
 0
-100
-27.0
+50
+15.0
 1
 1
 NIL
@@ -305,7 +305,7 @@ wolf-reproduce
 wolf-reproduce
 0
 15
-7.0
+6.0
 1
 1
 NIL
@@ -320,7 +320,7 @@ sheep-reproduce
 sheep-reproduce
 0
 20
-4.0
+7.0
 1
 1
 NIL
