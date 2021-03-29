@@ -35,12 +35,11 @@ to setup
     setxy random-xcor random-ycor
   ]
 
-  ;display-labels
   reset-ticks
 end
 
 to go
-  if not any? wolf_pack or not any? sheep_herd [stop] ;stop if no fox or no rabbit anymore
+  if not any? wolf_pack or not any? sheep_herd [stop] ;stop if no pred or no prey anymore
 
   ask sheep_herd
   [
@@ -382,39 +381,73 @@ PENS
 @#$#@#$#@
 ## WHAT IS IT?
 
-(a general understanding of what the model is trying to show or explain)
+This model shows a simple predator-prey ecosystem. Predators wander around and eat prey, while prey also wander around but eat grass. In this example, the predators are the wolves (black), and the prey is sheep (white). 
 
 ## HOW IT WORKS
 
-(what rules the agents use to create the overall behavior of the model)
+In this model, the green patches are grass, which the sheep must feed on to maintain their energy. Once a certain patch of grass is eaten, it will become brown, but will regrow (i.e., turn back to green) after some time. Sheep will randomly wander around the environment and eat grass if available.
+
+On the other hand, wolves will also wander around, but they will feed on the sheep to maintain their energy. 
+
+Both prey and predator will die if they run out of energy. Energy is decremented by 1 for each step. To keep them from going "extinct", both wolves and sheep have a fixed probability of reproducing at each time step. 
+
+If either the wolf or the sheep goes extinct, then the model stops. 
 
 ## HOW TO USE IT
 
-(how to use the model, including a description of each of the items in the Interface tab)
+1. The slider parameters can be adjusted to a user's preferred settings. Otherwise, they can be left to the default settings. 
+
+2. Press the SETUP button to set up the model.
+
+3. Press the GO button to begin the simulation.
+
+4. The monitors show the current population of all agents.
+
+5. The plot show the fluctuations in the population size of either species over time.
+
+-----------------------------------
+
+Parameters:
+1. INITIAL-NUMBER-SHEEP-HERD: The initial population size of the sheep during setup.
+2. INITIAL-NUMBER-WOLF-PACK: The initial population of the wolves during setup.
+3. WOLF-FEED-VALUE: The amount of energy that wolves will gain from eating sheep.
+4. SHEEP-FEED-VALUE: The amount of energy that sheep will gain from eating grass.
+5. WOLF-REPRODUCE: The probability of a wolf reproducing at each time step.
+6. SHEEP-REPRODUCE: The probability of a sheep reproducing at each time step.
+7. GRASS-GROW-TIME: How long it takes grass to regrow (turn green again) once eaten.
+8. MAX-STEP: Defines up until how big of a "step" a wolf or a sheep takes each time step.
+9. MAX-TURN: Defines up to what degree a wolf or a sheep faces each time step.
 
 ## THINGS TO NOTICE
 
-(suggested things for the user to notice while running the model)
+An important thing to notice in this model is the fluctuating population sizes of wolves and sheep, as well as the grass, and how they relate to each other. 
 
 ## THINGS TO TRY
 
-(suggested things for the user to try to do (move sliders, switches, etc.) with the model)
+1. Adjusting the parameters e.g., setting the initial population of either predator or prey to the maximum/minimum setting.
+
+2. Experimenting to find the right settings for a stable ecosystem. 
 
 ## EXTENDING THE MODEL
 
-(suggested things to add or change in the Code tab to make the model more complicated, detailed, accurate, etc.)
+Suggestions to consider: 
+
+1. Changing reproduction to depend on some given energy value rather than by probability.
+2. Adding another predator-prey pair -- or maybe just one predator or one prey -- and then exploring how they will change and influence the current model.
+3. Sheep flocking together or wolves hunting by pack.
+4. Adding some probability of predator eating prey instead of being fixed (i.e., it isn't guaranteed that a wolf that catches a sheep will be able to eat it).
 
 ## NETLOGO FEATURES
 
-(interesting or unusual features of NetLogo that the model uses, particularly in the Code tab; or where workarounds were needed for missing features)
+Using "breeds" to make wolf_pack and sheep_herd turtles distinct from each other.
+Using "patches" to model grass.
 
-## RELATED MODELS
-
-(models in the NetLogo Models Library and elsewhere which are of related interest)
 
 ## CREDITS AND REFERENCES
 
-(a reference to the model's URL on the web if it has one, as well as any other necessary credits, citations, and links)
+This model takes inspiration from an existing Model from the Model Library.
+
+* Wilensky, U. (1997).  NetLogo Wolf Sheep Predation model.  http://ccl.northwestern.edu/netlogo/models/WolfSheepPredation.  Center for Connected Learning and Computer-Based Modeling, Northwestern University, Evanston, IL.
 @#$#@#$#@
 default
 true
